@@ -25,7 +25,7 @@ module.exports = function(RED) {
 		});
 	}
 
-  RED.nodes.registerType("bar-chart-data", barChartDataNode);
+  RED.nodes.registerType("bar-chart-data2", barChartDataNode);
 }
 
 function setMeterValue(msg, myNode, store) {
