@@ -252,6 +252,9 @@ function barChartData(msg,myNode, store) {
 		else if (myNode.x_interval == "days") {
 			return fullKey.slice(0, -6);
 		}
+		else if (myNode.x_interval == "weeks") {
+			return fullKey.slice(0, -6);
+		}
 		else if (myNode.x_interval == "months") {
 			return fullKey.slice(0, -8);
 		}
@@ -279,6 +282,9 @@ function barChartData(msg,myNode, store) {
 			date.setHours(date.getHours()-minus);
 		}
 		else if (myNode.x_interval == "days") {
+			date.setDate(date.getDate()-minus);
+		}
+		else if (myNode.x_interval == "weeks") {
 			date.setDate(date.getDate()-minus);
 		}
 		else if (myNode.x_interval == "months") {
@@ -310,6 +316,9 @@ function barChartData(msg,myNode, store) {
 				label = ("0" + date.getHours()).slice(-2);
 			}
 			else if (myNode.x_interval == "days") {
+				label = ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+			}
+			else if (myNode.x_interval == "weeks") {
 				label = ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
 			}
 			else if (myNode.x_interval == "months") {
