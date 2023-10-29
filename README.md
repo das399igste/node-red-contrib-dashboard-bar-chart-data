@@ -19,7 +19,7 @@
         <li>quarter-hour</li>
         <li>hour</li>
         <li>day</li> 
-        <li>week</li>li>
+        <li>week</li>
         <li>year</li> 
       </dd>
     </dt>
