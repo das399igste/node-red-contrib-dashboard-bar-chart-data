@@ -1,9 +1,9 @@
 <script type="text/javascript">
-  RED.nodes.registerType('bar-chart-data', {
+  RED.nodes.registerType('bar-chart-data2', {
     category: 'dashboard',
     color: '#3FADB5',
     defaults: {
-      name: { value: 'bar-chart-data' },
+      name: { value: 'bar-chart-data2' },
       x_interval: { value: 'hours'},
 			x_size: { value: 24, validate: RED.validators.number()},
       unit: { value: ''},
@@ -19,12 +19,12 @@
     icon: 'ui_template.png',
     align: 'right',
     label: function() {
-      return this.name || 'bar-chart-data';
+      return this.name || 'bar-chart-data2';
     }
   });
 </script>
 
-<script type="text/x-red" data-template-name="bar-chart-data">
+<script type="text/x-red" data-template-name="bar-chart-data2">
 	
   <div class="form-row">
       <label for="node-input-name"><i class="fa fa-tag"></i> Node name</label>
@@ -81,7 +81,7 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="bar-chart-data">
+<script type="text/x-red" data-help-name="bar-chart-data2">
   <p>Transforms <code>msg.payload</code> to be displayed in the <code>dashboard-chart</code> node as bar-chart. Can handle measurements (e.g. current power consumption) or meter readings (e.g. gas/water/energy meter count).
   Calculates the sum, min or max in customizable time range. Works with multiple topics, too.</p>
 
