@@ -323,7 +323,7 @@ function barChartData(msg,myNode, store) {
 			else if (myNode.x_interval == "weeks") {
 				var ISOWeekday = (0 == date.getDay()) ? 7 : date.getDay();
 				var ISOCalendarWeek = Math.floor((((date.getTime() - (new Date(date.getFullYear(), 0, 1)).getTime()) / 86400000) - ISOWeekday + 10) / 7);
-				label = ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + ISOCalendarWeek).slice(-2);
+				label = "" + date.getFullYear() + "-" + ("0" + ISOCalendarWeek).slice(-2);
 			}
 			else if (myNode.x_interval == "months") {
 				label = "" + date.getFullYear() + "-" + ("0" + (date.getMonth()+1)).slice(-2);
