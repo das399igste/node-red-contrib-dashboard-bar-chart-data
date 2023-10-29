@@ -236,7 +236,7 @@ function barChartData(msg,myNode, store) {
 					  ("0" + date.getHours()).slice(-2) + 
 					  ("0" + date.getMinutes()).slice(-2) + 
 					  ("0" + date.getSeconds()).slice(-2);
-		
+
 		if (myNode.x_interval == "seconds") {
 			return fullKey;
 		} 
@@ -253,7 +253,9 @@ function barChartData(msg,myNode, store) {
 			return fullKey.slice(0, -6);
 		}
 		else if (myNode.x_interval == "weeks") {
-			return fullKey.slice(0, -6);
+			var ISOWeekday = (0 == date.getDay()) ? 7 : date.getDay();
+			var ISOCalendarWeek = Math.floor((((date.getTime() - (new Date(date.getFullYear(), 0, 1)).getTime()) / 86400000) - ISOWeekday + 10) / 7);
+			return fullKey.slice(0, -10) + "_" +ISOCalendarWeek;
 		}
 		else if (myNode.x_interval == "months") {
 			return fullKey.slice(0, -8);
@@ -285,7 +287,9 @@ function barChartData(msg,myNode, store) {
 			date.setDate(date.getDate()-minus);
 		}
 		else if (myNode.x_interval == "weeks") {
-			date.setDate(date.getDate()-minus);
+			var ISOWeekday = (0 == date.getDay()) ? 7 : date.getDay();
+			var ISOCalendarWeek = Math.floor((((date.getTime() - (new Date(date.getFullYear(), 0, 1)).getTime()) / 86400000) - ISOWeekday + 10) / 7);
+			date.setDate(ISOCalendarWeek-minus);
 		}
 		else if (myNode.x_interval == "months") {
 			date.setDate(1); //to avoid issues with end of month
@@ -319,7 +323,9 @@ function barChartData(msg,myNode, store) {
 				label = ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
 			}
 			else if (myNode.x_interval == "weeks") {
-				label = ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2);
+				var ISOWeekday = (0 == date.getDay()) ? 7 : date.getDay();
+				var ISOCalendarWeek = Math.floor((((date.getTime() - (new Date(date.getFullYear(), 0, 1)).getTime()) / 86400000) - ISOWeekday + 10) / 7);
+				label = ("0" + (date.getMonth()+1)).slice(-2) + "-" + ("0" + ISOCalendarWeek).slice(-2);
 			}
 			else if (myNode.x_interval == "months") {
 				label = "" + date.getFullYear() + "-" + ("0" + (date.getMonth()+1)).slice(-2);
