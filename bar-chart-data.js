@@ -255,7 +255,7 @@ function barChartData(msg,myNode, store) {
 		else if (myNode.x_interval == "weeks") {
 			var ISOWeekday = (0 == date.getDay()) ? 7 : date.getDay();
 			var ISOCalendarWeek = Math.floor((((date.getTime() - (new Date(date.getFullYear(), 0, 1)).getTime()) / 86400000) - ISOWeekday + 10) / 7);
-			return fullKey.slice(0, -10) + "_" +ISOCalendarWeek;
+			return fullKey.slice(0, -10) + ISOCalendarWeek;
 		}
 		else if (myNode.x_interval == "months") {
 			return fullKey.slice(0, -8);
