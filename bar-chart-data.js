@@ -202,7 +202,7 @@ function barChartData(msg,myNode, store) {
 	var dataAll = []
 	for (var i = 0; i < topics.length; i++) {
 		m.data.push([]); //add new array
-		topic = topics[i];
+		var topic = topics[i];
 		data = store.get(topic + '_data')||[];
 		newkeys.forEach(function(key) {
 			if (data.hasOwnProperty(key)) {
@@ -280,7 +280,7 @@ function barChartData(msg,myNode, store) {
 	};
 
 	function dateMinus(date_in, minus=1) {
-		date = new Date(date_in);
+		var date = new Date(date_in);
 		if (myNode.x_interval == "seconds") {
 			date.setSeconds(date.getSeconds()-minus);
 		}
@@ -320,7 +320,7 @@ function barChartData(msg,myNode, store) {
 				label = ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
 			}
 			else if (myNode.x_interval == "quarter_hours") {
-				label_date = new Date(date);
+				var label_date = new Date(date);
 				label_date.setMinutes(getQuarterHour(date)*15);
 				label = ("0" + label_date.getHours()).slice(-2) + ":" + ("0" + label_date.getMinutes()).slice(-2);
 			}
